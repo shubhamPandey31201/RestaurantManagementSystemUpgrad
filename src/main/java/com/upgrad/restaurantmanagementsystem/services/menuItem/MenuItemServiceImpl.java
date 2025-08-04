@@ -24,7 +24,7 @@ public class MenuItemServiceImpl implements MenuItemService {
             menuItemDao.save(item);
         } catch (Exception e) {
             logger.error("Failed to add menu item: {}", item, e);
-            // You can throw a custom exception here if needed
+
         }
     }
 
@@ -35,7 +35,7 @@ public class MenuItemServiceImpl implements MenuItemService {
             return menuItemDao.findById(id);
         } catch (Exception e) {
             logger.error("Failed to retrieve menu item with ID: {}", id, e);
-            return null; // or throw custom exception
+            return null;
         }
     }
 
@@ -46,7 +46,7 @@ public class MenuItemServiceImpl implements MenuItemService {
             return menuItemDao.findAll();
         } catch (Exception e) {
             logger.error("Failed to retrieve menu items", e);
-            return List.of(); // return empty list to avoid crash
+            return List.of();
         }
     }
 
