@@ -9,7 +9,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.upgrad.restaurantmanagementsystem.ddl.CustomerDdl.createCustomerTableIfNotExists;
+import static com.upgrad.restaurantmanagementsystem.ddl.Customer.createCustomerTableIfNotExists;
 import static com.upgrad.restaurantmanagementsystem.utils.DatabaseUtil.getConnection;
 
 public class CustomerDaoImpl implements CustomerDao {

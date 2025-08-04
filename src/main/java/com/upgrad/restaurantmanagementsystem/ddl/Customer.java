@@ -6,7 +6,7 @@ import java.sql.Statement;
 
 import static com.upgrad.restaurantmanagementsystem.utils.DatabaseUtil.getConnection;
 
-public class CustomerDdl {
+public class Customer {
 
     public static void createCustomerTableIfNotExists() {
         String sql = "CREATE TABLE IF NOT EXISTS customer (" +
