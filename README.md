@@ -360,3 +360,56 @@ flowchart TD
     C -- No --> G[Inform customer - no table available]
 
 ```
+## Order Placement – Sequence Diagram
+``` mermaid
+sequenceDiagram
+    participant Customer
+    participant Waiter
+    participant System
+    participant Kitchen
+
+    Customer->>Waiter: Requests to place an order
+    Waiter->>System: Enters new order
+    System->>Kitchen: Sends order to kitchen
+    Kitchen-->>System: Confirms order is being prepared
+    Kitchen-->>System: Updates status to "Ready"
+    System-->>Waiter: Notifies order is ready
+    Waiter->>Customer: Serves food
+    System->>System: Updates order status to "Served"
+```
+##  Billing – Sequence Diagram
+``` mermaid
+sequenceDiagram
+    participant Waiter
+    participant System
+    participant Customer
+
+    Waiter->>System: Initiates billing for order
+    System->>System: Calculates total amount
+    System-->>Waiter: Displays final bill
+    Waiter->>Customer: Presents bill
+    Customer->>Waiter: Makes payment
+    Waiter->>System: Records payment
+    System->>System: Updates order status to "Billed"
+```
+##  Table Booking – Sequence Diagram
+``` mermaid
+sequenceDiagram
+    participant Customer
+    participant Staff
+    participant System
+
+    Customer->>Staff: Requests table booking
+    Staff->>System: Checks table availability
+    System-->>Staff: Returns available slots
+
+    alt Table available
+        Staff->>System: Create booking
+        System-->>Staff: Booking confirmed
+        Staff->>Customer: Confirms booking
+    else Table not available
+        Staff->>Customer: Apologizes - no availability
+    end
+
+```
+
