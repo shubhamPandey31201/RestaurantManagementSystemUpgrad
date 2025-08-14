@@ -1,0 +1,19 @@
+package com.upgrad.mini_project_two.repositories;
+
+import com.upgrad.mini_project_two.entities.User;
+import com.upgrad.mini_project_two.enums.UserRole;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
+@Repository
+public interface UserRepository extends JpaRepository<User, UUID> {
+    Optional<User> findByEmail(String email);
+    Optional<User> findByUsername(String username);
+    List<User> findByRole(UserRole role);
+    boolean existsByEmail(String email);
+    boolean existsByUsername(String username);
+}
